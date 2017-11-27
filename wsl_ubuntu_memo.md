@@ -56,6 +56,7 @@ $ gcc -v
 
 ```sh
 $ sudo apt install 
+$ sudo apt-get install -y gcc make openssl libssl-dev libbz2-dev libreadline-dev libsqlite3-dev
 ```
 
 $HOME/.config/fish/config.fish
@@ -68,6 +69,7 @@ status --is-interactive; and source (pyenv virtualenv-init - | psub)
 
 ```
 
+```sh
 $ sudo apt-get install software-properties-common
 $ sudo apt-get install python-software-properties
 
@@ -76,4 +78,52 @@ pyenv global anaconda3-4.2.0
 
 cd $XDG_CONFIG/fish/functions
 ln -s (conda info --root)/etc/fish/conf.d/conda.fish
+```
 
+## neovim
+
+require: python3
+
+```sh
+$ sudo apt-get install software-properties-common
+$ sudo apt-get install python-software-properties
+$ sudo add-apt-repository ppa:neovim-ppa/stable
+$ sudo apt-get update
+
+$ sudo apt-get install neovim
+
+```
+
+### setup neovim-python
+
+```sh
+$ pyenv install 2.7.14
+$ pyenv virtualenv 2.7.14 neovim2
+
+$ pyenv install 3.6.3
+$ pyenv virtualenv 3.5.3 neovim3
+
+$ pyenv activate neovim2
+$ pip install neovim
+$ pyenv which python  # Note the path
+
+$ pyenv activate neovim3
+$ pip install neovim
+$ pyenv which python  # Note the path
+```
+
+init.vim
+
+```vim
+let g:python_host_prog = '/PATH/TO/pyenv/versions/neovim2/bin/python'
+let g:python3_host_prog = '/PATH/TO/pyenv/versions/neovim3/bin/python'
+```
+
+
+## golang
+
+```sh
+$ sudo add-apt-repository ppa:longsleep/golang-backports
+$ sudo apt-get update
+$ sudo apt-get install golang-go
+```
