@@ -49,9 +49,11 @@ on_cmd =  ['Alignta']
 # GIT {{{
 [[plugins]]
 repo = 'tpope/vim-fugitive'
+on_cmd=['Gstatus', 'Gwrite', 'Gread', 'Gcommit', 'Gdiff', 'Gvdiff']
 
 [[plugins]]
 repo = 'airblade/vim-gitgutter'
+on_event=['VimEnter']
 # }}} GIT
 
 
